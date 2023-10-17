@@ -1,0 +1,177 @@
+<View>
+  
+    <HyperText name="p1">
+      <p><a href="https://twitter.com/user/status/$tweet_id">Tweet Link</a></p>
+    </HyperText>
+   
+    <Paragraphs name="chat" value="$dialogue" layout="dialogue"/>
+    
+	
+  
+    <Header value="Is there conflict?"/>
+  
+    <Text name="IsConflict" value=""/>
+    <Choices name="chc" toName="IsConflict">
+        <Choice value="Yes" hint="test"/>
+        <Choice value="No"/>
+    </Choices>
+  
+     <View style="display: flex 50%">
+       <View visibleWhen="choice-selected" whenTagName="chc" whenChoiceValue="Yes">
+           <Header value="Is the conflict internal or external to the thread? Select all that apply"/>
+           <Text name="InternalOrExternal" value=""/>
+           <Choices name="chcInternalOrExternal" toName="InternalOrExternal" choice="multiple">
+               <Choice value="Internal" hint="hello"/>
+               <Choice value="External"/>
+           </Choices>
+       </View> 
+
+      
+    </View>
+
+  
+  
+  
+    <View style="display: flex 50%">
+        <View visibleWhen="choice-selected" whenTagName="chc" whenChoiceValue="Yes">
+			<Text name="UsThemOther" value=""/>
+          <Header value="Who/what is the target? Select all that apply"/>
+          
+  			
+            
+            <Text name="txt-7" value=""/>
+            <Choices name="chc7" toName="txt-7" choice="multiple">
+                <Choice value="Individual"/>
+                <Choice value="Group"/>
+              <Choice value="Policy/institutions"/>
+              <Choice value="Systemic issue/Cause"/>
+              <Choice value="Events"/>
+              <Choice value="Other ________"/>
+            </Choices>
+          <TextArea name="responseClaimsOther" toName="UsThemOther" rows="1" editable="true" maxSubmissions="1"/>
+        </View> 
+      
+
+      
+      
+    </View>
+  
+	
+    <View style="display: flex 50%">  
+        <View visibleWhen="choice-selected" whenTagName="chc" whenChoiceValue="Yes">
+            <Text name="AuthorityOther" value=""/>
+
+            <Header value="Is there an authority evoked? Select all that apply"/>
+            <Text name="txt-8" value=""/>
+            <Choices name="chc8" toName="txt-8">
+                <Choice value="Personal experience"/>
+                <Choice value="Common sense (ideology)"/>
+              <Choice value="Factual/distant expertise/Institution"/>
+              <Choice value="Authority is rejected or transgressed "/>
+              <Choice value="Other ________"/>
+            </Choices>
+                    <TextArea name="responseAuthOther" toName="AuthorityOther" rows="1" editable="true" maxSubmissions="1"/>
+
+        </View>     
+      
+
+      
+    </View> 
+  
+
+    <View style="display: flex 50%">  
+        <View visibleWhen="choice-selected" whenTagName="chc" whenChoiceValue="Yes">
+          <Text name="DichotomyOther" value=""/>
+            <Header value="Are there groups being discussed?"/>
+            <Text name="txt-9" value=""/>
+            <Choices name="chc9" toName="txt-9">
+                <Choice value="Yes"/>
+                <Choice value="No"/>
+            </Choices>
+          
+
+        </View>
+      
+		<Text name="UsThem_v3" value=""/>
+        <Choices name="chc4_v3" toName="UsThem_v3" choice="multiple" visibleWhen="choice-selected" whenTagName="chc9" whenChoiceValue="Yes">
+            <Choice value="Us above them"/>
+            <Choice value="Us below them"/>
+            <Choice value="Us/Them conjunctive"/>
+            <Choice value="Us/Them disconjunctive"/>
+           </Choices>
+
+      
+    </View>  
+  
+   
+  
+    <View style="display: flex 50%">  
+        <View visibleWhen="choice-selected" whenTagName="chc" whenChoiceValue="Yes">
+          <Text name="RhetOther" value=""/>
+            <Header value="Is there a rhetorical strategy?"/>
+            <Text name="txt-10" value=""/>
+            <Choices name="chc10" toName="txt-10">
+                <Choice value="Yes"/>
+                <Choice value="No"/>
+            </Choices>
+          
+          
+        </View>
+		      
+        <Text name="Rhetoric" value=""/>
+        <Choices name="chc5" toName="Rhetoric" choice="multiple" visibleWhen="choice-selected" whenTagName="chc10" whenChoiceValue="Never">
+            <Choice value="Use of associations, metaphors, or analogies"/>
+            <Choice value="Excitable speech"/>
+            <Choice value="Explicit directives or calls to action"/>
+            <Choice value="Appeals to emotion or affect"/>
+            <Choice value="Appeals to ethics or moral uprightness"/>
+            <Choice value="Refutes a claim, assertion, accusation or statement"/>
+            <Choice value="Uses tactical speech such as derailing or flaming"/>
+            <Choice value="Includes a suggestive assertion or overtone"/>
+          <Choice value="Includes an image, meme or hyperlink"/>
+          <Choice value="Other:"/>
+        </Choices>
+      
+        <Text name="Rhetoric_v2" value=""/>
+        <Choices name="chc5_v2" toName="Rhetoric_v2" choice="multiple" visibleWhen="choice-selected" whenTagName="chc10" whenChoiceValue="Yes">
+            <Choice value="Explicit directives and calls to action"/>
+            <Choice value="Associations, metaphors, or analogies"/>
+          <Choice value="Sarcasm"/>
+
+        </Choices>
+    </View> 
+  
+  
+  
+    <Header value="Was more context needed?"/>
+    <Text name="MoreContext" value=""/>
+    <Choices name="chcContext" toName="MoreContext" choice="multiple">
+        <Choice value="Yes - Cultural"/>
+      <Choice value="Yes - Conversational"/>
+      <Choice value="Yes - Media"/>
+      <Choice value="Yes - Missing Tweets"/>
+        <Choice value="No"/>
+    </Choices>
+  
+      <Header value="How did you feel when reading the conversation?"/>
+    <Text name="SentimentOfAnnotator" value=""/>
+    <Choices name="chcSentimentOfAnnotator" toName="SentimentOfAnnotator" choice="multiple">
+        <Choice value="Shock"/>
+      <Choice value="Sadness"/>
+      <Choice value="Disgust"/>
+      <Choice value="Anger"/>
+      <Choice value="Fear"/>
+      <Choice value="Confusion"/>
+      <Choice value="Indifference"/>
+      <Choice value="Entertained"/>
+      <Choice value="Hopeful"/>
+    </Choices>
+  
+  	<View>
+      	<Header value="How confident are you about your analysis?"/>
+    	<Text name="meta-confidence" value=""/>
+  		<Rating name="rating" toName="meta-confidence" maxRating="5" icon="star" size="medium"/>
+	</View>
+  
+  
+</View>
