@@ -1,0 +1,16 @@
+<View>
+    <Paragraphs name="chat" value="$dialogue" layout="dialogue"/>
+    
+    <Header value="What sort of conflict is this?"/>
+  
+    <Text name="IsConflict" value=""/>
+    <Choices name="chc" toName="IsConflict">
+        <Choice value="Antagonistic" hint="test"/>
+        <Choice value="Agonistic"/>
+        <Choice value="Neither"/>
+    </Choices>
+  
+    <Header value="Explanation (optional)"/>
+    <TextArea name="explanation" toName="chat" placeholder="Add your explanation here..."/>
+  
+</View>
